@@ -1,11 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput, TouchableOpacity } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
 import LoginScreen from './App/Screens/LoginScreen.js'
+import HomeScreen from './App/Screens/HomeScreen.js';
 
 export default function App() {
   return (
@@ -17,24 +16,10 @@ export default function App() {
           options={{ title: 'Welcome' }}
         />
         <Stack.Screen
-          name="Profile"
-          component={ProfileScreen}
+          name="Home"
+          component={HomeScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
-
   );
 }
-
-const ProfileScreen = ({ navigation, route }) => {
-  return <Text>This is {route.params.name}'s profile</Text>;
-};
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

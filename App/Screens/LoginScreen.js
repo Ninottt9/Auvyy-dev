@@ -1,4 +1,5 @@
-import { Text, View, Button, TextInput, TouchableOpacity, StatusBar } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
+import React, { useState } from 'react';
 
 import styles from '../LogInStyles';
 
@@ -12,7 +13,9 @@ const HomeScreen = ({ navigation }) => {
                     style={styles.TextInput}
                     placeholder="Phone number"
                     placeholderTextColor="#003f5c"
-                    onChangeText={(phoneNumber) => setEmail(phoneNumber)}
+                    keyboardType='numeric'
+                    maxLength={9}
+                    onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
                 />
             </View>
 
@@ -33,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity
                 style={styles.loginBtn}
                 onPress={() =>
-                    navigation.navigate('Profile', { name: 'Jane' })
+                    navigation.navigate('Home')
                 }
             >
                 <Text style={styles.loginText}>LOGIN</Text>
@@ -41,5 +44,8 @@ const HomeScreen = ({ navigation }) => {
         </View>
     );
 };
+
+const [password, setPassword] = useState(null);
+const [phoneNumber, setPhoneNumber] = useState("phone number");
 
 export default HomeScreen;
