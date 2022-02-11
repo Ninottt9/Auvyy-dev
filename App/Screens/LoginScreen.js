@@ -15,17 +15,17 @@ const HomeScreen = ({ navigation }) => {
                     placeholderTextColor="#003f5c"
                     keyboardType='numeric'
                     maxLength={9}
-                    onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
+                // onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
                 />
             </View>
 
             <View style={styles.inputView}>
                 <TextInput
                     style={styles.TextInput}
-                    placeholder="Password."
+                    placeholder="Password"
                     placeholderTextColor="#003f5c"
                     secureTextEntry={true}
-                    onChangeText={(password) => setPassword(password)}
+                // onChangeText={(password) => setPassword(password)}
                 />
             </View>
 
@@ -36,7 +36,7 @@ const HomeScreen = ({ navigation }) => {
             <TouchableOpacity
                 style={styles.loginBtn}
                 onPress={() =>
-                    navigation.navigate('Home')
+                    navigation.navigate('Main')
                 }
             >
                 <Text style={styles.loginText}>LOGIN</Text>
@@ -45,7 +45,7 @@ const HomeScreen = ({ navigation }) => {
     );
 };
 
-const [password, setPassword] = useState(null);
-const [phoneNumber, setPhoneNumber] = useState("phone number");
+// const [password, setPassword] = useState(null);
+// const [phoneNumber, setPhoneNumber] = useState("phone number");
 
 export default HomeScreen;

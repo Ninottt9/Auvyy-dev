@@ -3,8 +3,9 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
 
+import React from 'react';
 import LoginScreen from './App/Screens/LoginScreen.js'
-import HomeScreen from './App/Screens/HomeScreen.js';
+import MainScreen from './App/Screens/MainScreen.js';
 
 export default function App() {
   return (
@@ -16,8 +17,8 @@ export default function App() {
           options={{ title: 'Welcome' }}
         />
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="Main"
+          component={MainScreen}
         />
       </Stack.Navigator>
     </NavigationContainer>
