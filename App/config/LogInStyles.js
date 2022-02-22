@@ -35,12 +35,12 @@ const styles = StyleSheet.create({
     },
 
     loginBtn: {
-        width: "80%",
+        width: "70%",
         borderRadius: 25,
         height: 50,
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 40,
+        marginTop: 20,
         backgroundColor: "#fc5c65",
     },
 

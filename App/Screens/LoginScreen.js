@@ -1,7 +1,7 @@
 import { Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
 import React, { useState } from 'react';
 
-import styles from '../LogInStyles';
+import styles from '../config/LogInStyles';
 
 const HomeScreen = ({ navigation }) => {
     return (
@@ -18,20 +18,6 @@ const HomeScreen = ({ navigation }) => {
                 // onChangeText={(phoneNumber) => setPhoneNumber(phoneNumber)}
                 />
             </View>
-
-            <View style={styles.inputView}>
-                <TextInput
-                    style={styles.TextInput}
-                    placeholder="Password"
-                    placeholderTextColor="#003f5c"
-                    secureTextEntry={true}
-                // onChangeText={(password) => setPassword(password)}
-                />
-            </View>
-
-            <TouchableOpacity>
-                <Text style={styles.forgot_button}>Forgot Password?</Text>
-            </TouchableOpacity>
 
             <TouchableOpacity
                 style={styles.loginBtn}
