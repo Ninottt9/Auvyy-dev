@@ -1,9 +1,9 @@
-import { Text, View, TextInput, TouchableOpacity, StatusBar } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, StatusBar, Button } from 'react-native';
 import React, { useState } from 'react';
 
 import styles from '../config/LogInStyles';
 
-const HomeScreen = ({ navigation }) => {
+/*const HomeScreen = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <StatusBar style='auto' />
@@ -29,7 +29,46 @@ const HomeScreen = ({ navigation }) => {
             </TouchableOpacity>
         </View>
     );
-};
+};*/
+
+// import auth from '@react-native-firebase/auth';
+
+function HomeScreen() {
+    // If null, no SMS has been sent
+    const [confirm, setConfirm] = useState(null);
+
+    const [code, setCode] = useState('');
+
+    // Handle the button press
+    async function signInWithPhoneNumber(phoneNumber) {
+        const confirmation = await auth().signInWithPhoneNumber(phoneNumber);
+        setConfirm(confirmation);
+    }
+
+    async function confirmCode() {
+        try {
+            await confirm.confirm(code);
+        } catch (error) {
+            console.log('Invalid code.');
+        }
+    }
+
+    if (!confirm) {
+        return (
+            <Button
+                title="Phone Number Sign In"
+                onPress={() => signInWithPhoneNumber('+1 650-555-3434')}
+            />
+        );
+    }
+
+    return (
+        <>
+            <TextInput value={code} onChangeText={text => setCode(text)} />
+            <Button title="Confirm Code" onPress={() => confirmCode()} />
+        </>
+    );
+}
 
 // const [password, setPassword] = useState(null);
 // const [phoneNumber, setPhoneNumber] = useState("phone number");
