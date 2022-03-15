@@ -1,21 +1,40 @@
 import React, { useState, useRef } from "react";
 import {
     SafeAreaView,
-    StyleSheet,
     View,
     TouchableOpacity,
     Text,
 } from "react-native";
-import { Colors } from "react-native/Libraries/NewAppScreen";
 import PhoneInput from "react-native-phone-number-input";
 import styles from "../config/PhoneNumberStyles.js";
 
-import { sendSmsVerification } from "../api/verify.js";
+// import { SMS } from 'expo-sms'
+// import { sendSmsVerification } from "../api/verify.js";
+
+
 
 const PhoneNumber = ({ navigation }) => {
     const [value, setValue] = useState("");
     const [formattedValue, setFormattedValue] = useState("");
     const phoneInput = useRef<PhoneInput>(null);
+
+    // const onPressContinue = () => {
+
+    // }
+    // const [phoneNumberm, setPhoneNumber] = useState();
+    // const [focusInput, setFocusInput] = useState(true);
+    // const onChangePhone = (number) => {
+    //     setPhoneNumber(number)
+    // }
+
+
+    // onPress = async () => {
+    //     const status = await SMS.sendSMSAsync(
+    //         '+48730989791',
+    //         'Here is your athantivation code'
+    //     );
+    //     console.log(status);
+    // };
 
     return (
         <>
@@ -30,10 +49,14 @@ const PhoneNumber = ({ navigation }) => {
                         defaultCode="PL"
                         layout="first"
 
+
+                        placeholder="902 291 011"
+                        // value={phoneNumber}
+
                         onChangeText={(text) => {
-                            if (text.length > 9) {
-                                text = text.substring(0, 8);
-                            }
+                            // if (text.length > 9) {
+                            //     text = text.substring(0, 8);
+                            // }
                             setValue(text);
                         }}
                         onChangeFormattedText={(text) => {
@@ -45,14 +68,10 @@ const PhoneNumber = ({ navigation }) => {
                     />
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => {
-                            // TODO - send SMS
-                            // navigation.navigate('Main')
-                            sendSmsVerification(formattedValue).then((sent) => {
-                                console.log("Sent!");
-                            });
+                    // onPress={this.onPress}
+                    // TODO - send SMS
+                    // navigation.navigate('Main')
 
-                        }}
                     >
                         <Text style={styles.buttonText}>Sign Up</Text>
                     </TouchableOpacity>
